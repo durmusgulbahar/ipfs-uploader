@@ -3,8 +3,8 @@ import './App.css';
 import { create } from 'ipfs-http-client'
 import { useState } from 'react';
 import { Buffer } from "buffer";
-import { stringify } from 'querystring';
 
+//www.cloudflare-ipfs.com/ipfs/
 
 // connect to ipfs daemon API server
 const INFURA_PROJECT_ID = "2Jj1KTbwwajeWGWACrpdmRlfrzy"
@@ -34,7 +34,7 @@ function App() {
     const file = e.target.files[0]
     try {
       const added = await client.add(file)
-      const url = `https://nftmarket2.infura-ipfs.io/ipfs/${added.path}`
+      const url = `https://ipfs-uploader.infura-ipfs.io/ipfs/${added.path}`
       
       updateFileUrl(url)
       
@@ -58,7 +58,7 @@ function App() {
       })
 
       const added = await client.add(data)
-      const url = `https://nftmarket2.infura-ipfs.io/ipfs/${added.path}`
+      const url = `https://ipfs-uploader.infura-ipfs.io/ipfs/${added.path}`
       setMetadataURL(url);
 
     } catch (error) {
