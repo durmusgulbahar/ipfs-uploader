@@ -1,5 +1,5 @@
 # IPFS UPLOADER
 
-You
+IPFS Uploader for NFT projects. Takes input image and metadata and generates metadata uri.
 
-ipfs-uploader-seven.vercel.app
+https://ipfs-uploader-seven.vercel.app/
