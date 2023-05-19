@@ -4,14 +4,11 @@ import { create } from 'ipfs-http-client'
 import { useState } from 'react';
 import { Buffer } from "buffer";
 
-//www.cloudflare-ipfs.com/ipfs/
 
 // connect to ipfs daemon API server
-const INFURA_PROJECT_ID = "2Jj1KTbwwajeWGWACrpdmRlfrzy"
-const INFURA_API_KEY = "26d6aeb1dd16c1dad758d4d7a6f245fa"
 
-const projectId = INFURA_PROJECT_ID;
-const projectSecret = INFURA_API_KEY;
+const projectId = process.env.INFURA_PROJECT_ID;
+const projectSecret = process.env.INFURA_API_KEY;
 const auth = 'Basic ' + Buffer.from(projectId + ':' + projectSecret).toString('base64');
 const client = create({
   host: 'ipfs.infura.io',
