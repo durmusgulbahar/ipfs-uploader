@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import { create } from 'ipfs-http-client'
 import { useState } from 'react';
@@ -7,8 +6,8 @@ import { Buffer } from "buffer";
 
 // connect to ipfs daemon API server
 
-const projectId = process.env.INFURA_PROJECT_ID;
-const projectSecret = process.env.INFURA_API_KEY;
+const projectId = process.env.INFURA_PROJECT_ID; // or your project id
+const projectSecret = process.env.INFURA_API_KEY; // or your project secret
 const auth = 'Basic ' + Buffer.from(projectId + ':' + projectSecret).toString('base64');
 const client = create({
   host: 'ipfs.infura.io',
@@ -68,7 +67,8 @@ function App() {
   
   return (
     <div className="App">
-      <h1>IPFS Example</h1>
+      <h1>IPFS Uploader</h1>
+      <h2>Get your NFT's URI easily.</h2>
       
       <input
         type="file"
