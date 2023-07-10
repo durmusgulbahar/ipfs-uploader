@@ -3,11 +3,10 @@ import { create } from 'ipfs-http-client'
 import { useState } from 'react';
 import { Buffer } from "buffer";
 
-
 // connect to ipfs daemon API server
 
-const projectId = process.env.INFURA_PROJECT_ID; // or your project id
-const projectSecret = process.env.INFURA_API_KEY; // or your project secret
+const projectId = process.env.REACT_APP_INFURA_PROJECT_ID; // or your project id
+const projectSecret = process.env.REACT_APP_INFURA_SECRET; // or your project secret
 const auth = 'Basic ' + Buffer.from(projectId + ':' + projectSecret).toString('base64');
 const client = create({
   host: 'ipfs.infura.io',
@@ -18,6 +17,8 @@ const client = create({
     authorization: auth,
   }
 })
+console.log("infura keysssss")
+console.log(projectId,projectSecret)
 
 function App() {
 
@@ -28,6 +29,7 @@ function App() {
   // upload image to the IPFS
   async function onChange(e) {
     const file = e.target.files[0]
+    
     try {
       const added = await client.add(file)
       const url = `https://ipfs-uploader.infura-ipfs.io/ipfs/${added.path}`
